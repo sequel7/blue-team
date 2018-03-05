@@ -28,7 +28,7 @@ chown root:root /etc/ssh/sshd_config
 chmod 600 /etc/ssh/sshd_config
 
 # Change Port
-sed -i "s/#Port 22/Port 62111/g" /etc/ssh/sshd_config
+sed -i "s/#Port 22/Port 1024/g" /etc/ssh/sshd_config
 
 # Protocol 2
 echo "Protocol 2" >> /etc/ssh/sshd_config
@@ -74,5 +74,5 @@ echo "AllowGroups wheel" >> /etc/ssh/sshd_config
 # Disable X11 forwarding
 sed -i "s/X11Forwarding yes/#X11Forwarding yes/g" /etc/ssh/sshd_config
 
-service sshd restart
+systemctl restart ssh.service
 
