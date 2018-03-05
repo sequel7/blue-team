@@ -24,13 +24,13 @@
 
 
 # Set Maximum number of days a password may be used
-sed -i "s/^PASS_MAX_DAYS.*/PASS_MAX_DAYS   90/" /etc/login.defs
+sed -i "s/^PASS_MAX_DAYS.*/PASS_MAX_DAYS   12/" /etc/login.defs
 
 # Set Minimum number of days allowed between password changes to 5
 sed -i "s/^PASS_MIN_DAYS.*/PASS_MIN_DAYS   5/" /etc/login.defs
 
 # Set Number of days warning given before a password expires
-sed -i "s/^PASS_WARN_AGE.*/PASS_WARN_AGE   10/" /etc/login.defs
+sed -i "s/^PASS_WARN_AGE.*/PASS_WARN_AGE   30/" /etc/login.defs
 
 # Lock Inactive User Accounts after 30 days
 useradd -D -f 30
@@ -42,7 +42,7 @@ usermod -g 0 root
 apt -y install libpam-cracklib
 
 # Set minimum password length
-sed -i "s/minlen=[[:digit:]]\+/minlen=14/" /etc/pam.d/common-password
+sed -i "s/minlen=[[:digit:]]\+/minlen=8/" /etc/pam.d/common-password
 
 # Is username (straight or reversed) contained in the new password? reject it.
 sed -i "s/\bdifok=3\b/& reject_username/" /etc/pam.d/common-password
