@@ -1,6 +1,6 @@
 # blue-team
 
-Blue Team Scripts
+Originally written by [maldevel](https://github.com/maldevel/blue-team)
 
-* Tested on Debian 9
+Optimized for Ubuntu
 
